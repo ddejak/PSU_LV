@@ -10,15 +10,23 @@ rijecnik = {}
 fhand = open(putanja)
 
 for line in fhand:
-    rijec = line.split()
-    
-    if rijec in rijecnik:
-        rijecnik[rijec]+=1
-    else:
-        rijecnik[rijec]=0
-        
-print(rijecnik)
+    line = line.strip().lower()  
+    rijeci = line.split()  
 
-
+    for rijec in rijeci:
+        if rijec in rijecnik:
+            rijecnik[rijec] += 1
+        else:
+            rijecnik[rijec] = 1
 
 fhand.close()
+
+
+rijeci_jednom = []
+
+for rijec, broj in rijecnik.items():
+    if broj == 1:
+        rijeci_jednom.append(rijec)
+
+print(f"Broj riječi koje se pojavljuju samo jednom: {len(rijeci_jednom)}")
+print("Te riječi su:", rijeci_jednom)
