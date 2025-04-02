@@ -13,8 +13,6 @@ from sklearn.metrics import mean_absolute_error, r2_score, mean_squared_error, m
 df = pd.read_csv('cars_processed.csv')
 print(df.info())
 
-df.drop("name")
-
 X = df[['km_driven', 'year', 'engine', 'max_power']]
 y = df['selling_price']
 
@@ -44,7 +42,7 @@ print("TRUE RMSE",np.sqrt(mean_squared_error(y_pred_rupee, y_test_rupee)))
 print("TRUE MAE",mean_absolute_error(y_pred_rupee, y_test_rupee))
 
 fig = plt.figure(figsize=[13, 10])
-ax = sns.regplot(y_pred_test, y_test, line_kws={'color'== 'green'})
+ax = sns.regplot(y_pred_test, y_test, line_kws={'color': 'green'})
 ax.set(xlabel = 'Predikcija', ylabel = 'Stvarna vrijednost', title='Rezultati na testnim podacima')
 plt.show()
 
